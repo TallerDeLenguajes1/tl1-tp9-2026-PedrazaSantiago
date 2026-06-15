@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using EspacioArchivo;
 List<Archivo> listaArchivos = new List<Archivo>();
-bool valido = true;
+bool valido = false;
 do
 {
     Console.WriteLine("Ingrese un directorio valido: ");
@@ -10,9 +10,9 @@ do
 
     if (Directory.Exists(RutaCarpeta))
     {
+        valido = true;
         Console.WriteLine("Existe el directorio");
-        string[] carpetas;
-        carpetas = Directory.GetDirectories(RutaCarpeta);
+        string[] carpetas = Directory.GetDirectories(RutaCarpeta);
         Console.WriteLine("Carpetas dentro del directorio:");
 
         foreach (string cpt in carpetas)
@@ -50,4 +50,4 @@ do
         Console.WriteLine("No existe el directorio");
         valido = false;
     }
-} while (valido == false);
+} while (!valido);
